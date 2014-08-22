@@ -1,0 +1,28 @@
+ <head>
+   <style>
+  
+   body {
+     background-color: 40BFB5;
+   }
+   
+   </style>
+
+<h2>Edit Trail Name</h2>
+</head>
+
+<form action="/trails/<%= @trail.id %>/update" method="post">
+  
+  <% @all_users.each do |u| %>
+    <input type="checkbox" name="users[]" value="<%= u.id %>" <%= "checked" if @trail.users.include?(u) %>>
+    <%= u.name %><br>
+  <% end %>
+  
+  <input type="name" name="caption" value="<%= @trail.trail_name %>">
+  <input type="submit">
+</form>
+
+      <h4>The current weather for Omaha, NE:</h4>
+        <li><%=@forecast.minutely.summary%></li>
+        <li>The temperature is <%=@forecast.currently.temperature%> degrees Fahrenheit</li>
+        <li>The relative humidity is <%=@forecast.currently.humidity*100%>%</li>
+        <li>There is <%=@forecast.currently.precipProbability*100%>% chance of rain</li>

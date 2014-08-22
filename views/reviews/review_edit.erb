@@ -1,0 +1,8 @@
+<h1>Edit Trail Review Content</h1>
+
+
+<form action="/reviews/<%= @review.id %>/update" method="post">
+  <p>Review Content: <input type="text" name="name" value="<%= @review.content %>"></p>
+  
+    <input type="submit">
+</form>

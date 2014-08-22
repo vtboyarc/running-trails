@@ -1,0 +1,41 @@
+ <head>
+   <style>
+  
+   body {
+     background-color: 40BFB5;
+   }
+   
+   input {
+        border: 0;
+        padding: 6px;
+        font-size: 14px;
+        background: white;
+      }
+     
+      input[type="submit"] {
+        background: red;
+        color: black;
+      }
+      
+      table,th, td {
+      border:1px solid black;
+      }
+   
+   </style>
+  
+  <title>Running Trails</title>
+
+<h2>New Review</h2>
+
+ <form action="/users/<%= @user.id %>/create_review" method="post">  
+  
+   <p>Content: <input type="text" name="content"></p>
+    
+   <input type="submit">
+ </form>
+ 
+ <h4>The current weather for Omaha, NE:</h4>
+   <li><%=@forecast.minutely.summary%></li>
+   <li>The temperature is <%=@forecast.currently.temperature%> degrees Fahrenheit</li>
+   <li>The relative humidity is <%=@forecast.currently.humidity*100%>%</li>
+   <li>There is <%=@forecast.currently.precipProbability*100%>% chance of rain</li>

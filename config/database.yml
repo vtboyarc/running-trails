@@ -1,0 +1,7 @@
+development:
+  database: db/running2.db
+  adapter: sqlite3
+
+test:
+  database: db/running_test.db
+  adapter: sqlite3

@@ -1,0 +1,31 @@
+ <head>
+   <style>
+  
+   body {
+     background-color: 40BFB5;
+   }
+   
+   </style>
+  
+  <title>Running Trails</title>
+
+
+
+<% if @review.valid? %>
+
+<h1>Great!</h1>
+
+<p>Entered a new trail review: <%= @review.content %>.</p>
+
+<a href="/">Return to home page.</a>
+
+
+<% else %>
+
+  <% @review.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+  
+  <a href="/users/index">Please enter a longer review.</a>
+  
+<% end %>

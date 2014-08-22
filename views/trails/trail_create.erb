@@ -1,0 +1,23 @@
+ <head>
+   <style>
+  
+   body {
+     background-color: 40BFB5;
+   }
+   
+   </style>
+
+<h2>Edit Trail Name</h2>
+</head>
+
+<h2>Great!</h2>
+
+<p>Entered a new trail with name <%= @trail.id %>.</p>
+
+<a href="/">Return to home page.</a>
+
+      <h4>The current weather for Omaha, NE:</h4>
+        <li><%=@forecast.minutely.summary%></li>
+        <li>The temperature is <%=@forecast.currently.temperature%> degrees Fahrenheit</li>
+        <li>The relative humidity is <%=@forecast.currently.humidity*100%>%</li>
+        <li>There is <%=@forecast.currently.precipProbability*100%>% chance of rain</li>
