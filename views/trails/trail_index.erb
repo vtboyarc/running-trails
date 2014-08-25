@@ -9,15 +9,27 @@
   
   <title>Running Trails</title>
 </head> 
+<body>
  <center>
+    <h2>Runners and the Trails They've Reviewed</h2>
  <p>
-   <h2><a href="/trails/new">Add new trail for a review</a><h2>
+   <h3><a href="/trails/new">Add new trail for a review</a><h3>
  </p>
- 
- <% @all_trails.each do |t| %>
- <p><a href="/trails/<%= t.id %>"><%= t.trail_name || t.id %></a></p>
- <% end %>
 
+   <table>
+     <thead>
+       <th>Trail Name</th>
+       <th>&nbsp;&nbsp;# of Reviews Written</th>
+     </thead>
+     <tbody>
+       <% @all_trails.each do |t| %>
+         <tr>
+           <td><a href="/trails/<%=t.id%>"><%= t.trail_name || t.id %></a></td>
+           <td>&nbsp;&nbsp;<%= t.reviews.count %></td>
+         </tr>
+       <%end%>
+     </tbody>
+   </table>
 
       <h4>The current weather for Omaha, NE:</h4>
         <li><%=@forecast.minutely.summary%></li>
@@ -26,3 +38,35 @@
         <li>There is <%=@forecast.currently.precipProbability*100%>% chance of rain</li>
         
         </center>
+        
+        
+
+        
+         <!-- <head>
+           <style>
+
+           body {
+             background-color: 40BFB5;
+           }
+
+           </style>
+
+          <title>Running Trails</title>
+        </head>
+         <center>
+         <p>
+           <h2><a href="/trails/new">Add new trail for a review</a><h2>
+         </p>
+
+         <% @all_trails.each do |t| %>
+         <p><a href="/trails/<%= t.id %>"><%= t.trail_name || t.id %></a></p>
+         <% end %>
+
+
+              <h4>The current weather for Omaha, NE:</h4>
+                <li><%=@forecast.minutely.summary%></li>
+                <li>The temperature is <%=@forecast.currently.temperature%> degrees Fahrenheit</li>
+                <li>The relative humidity is <%=@forecast.currently.humidity*100%>%</li>
+                <li>There is <%=@forecast.currently.precipProbability*100%>% chance of rain</li>
+
+                </center> -->

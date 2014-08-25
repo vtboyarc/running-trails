@@ -52,6 +52,7 @@ end
 # Show
 get "/trails/:id" do
   @forecast = ForecastIO.forecast(41.2586100, -95.9377900)
+   @user = User.find(params[:id])
   @trail = Trail.find(params[:id])
   erb :"trails/trail_show"
 end

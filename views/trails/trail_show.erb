@@ -18,6 +18,20 @@
 
 
 <a href="/trails/<%= @trail.id %>/edit">Edit this trail's name.</a>
+<p>
+<% @trail.reviews.each do |review| %>
+  <li><%= review.content %></li>
+<% end %>
+</p>
+
+<h3>New Review</h3>
+
+ <form action="/users/<%= @user.id %>/create_review" method="post">  
+  
+   <p>Content: <input type="text" name="content"></p>
+    
+   <input type="submit">
+ </form>
 
     <h4>The current weather for Omaha, NE:</h4>
       <li><%=@forecast.minutely.summary%></li>
